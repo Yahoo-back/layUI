@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>layout 后台大布局 - Layui</title>
+	<!-- <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script> -->
+	<meta http-equiv="content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="./layui/css/layui.css"  media="all">
+	<link rel="stylesheet" href="./css/aboutUs.css">
+	<script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+	<!-- <link rel="stylesheet" type="text/css" href="./css/normalize.css" /> -->
+	<!-- <link rel="stylesheet" type="text/css" href="./css/default.css"> -->
+	<!-- <link href="./css/base.css"  rel="stylesheet" type="text/css" /> -->
+	<!-- <link href="./css/project_base.css"  rel="stylesheet" type="text/css" /> -->
+	<!-- <link href="./css/radialindicator.css"  rel="stylesheet" type="text/css" /> -->
+	<!-- <script type="text/javascript" src="./js/base.js"></script> -->
+	<!-- <script type="text/javascript" src="./js/project_base.js"></script>	 -->
+	<!-- <script type="text/javascript" src="./echarts-2.2.7/src/theme/macarons.js"></script> -->
+</head>
+<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">layui 后台布局</div>
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+				<ul class="layui-nav layui-layout-left">
+					<li class="layui-nav-item"><a href="index.html">首页</a></li>
+					<li class="layui-nav-item"><a href="">商品管理</a></li>
+					<li class="layui-nav-item"><a href="aboutUs.html">用户</a></li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">其它系统</a>
+						<dl class="layui-nav-child">
+							<dd><a href="">邮件管理</a></dd>
+							<dd><a href="">消息管理</a></dd>
+							<dd><a href="">授权管理</a></dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="layui-body">
+				<!-- 内容主体区域 -->
+				<div style="padding: 15px;">
+					<div id="BaiduMap" style="width: 300px;height: 300px"></div>
+				</div>
+
+				<div id="top"><a href="#bottom">顶部</a></div>
+				<div id="bottom">底部</div>
+			</div>
+			
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+				© layui.com - 底部固定区域
+			</div>
+		</div>
+		<script src="./layui/layui.js"></script>
+		<script src="./js/map.js"></script>
+		<script>
+	
+
+			//JavaScript代码区域
+			layui.use('element', function(){
+				var element = layui.element;
+			});
+
+			layui.config({
+        base: 'js/extend/'
+    }).use(['layer', 'LoadScript'], function () {
+        var layer = layui.layer;
+
+        // 定义需要动态引入的js文件列表
+        var scriptArr = ['http://api.map.baidu.com/getscript?v=2.0&ak=826e806b86676d155282de3d37188137&services=&t=20170220193356', 'http://api.map.baidu.com/library/MarkerTool/1.2/src/MarkerTool_min.js','http://api.map.baidu.com/library/CityList/1.4/src/CityList_min.js'];
+        // 从索引i=0的文件开始引入，i++直到最后一个引入完成后回调callback
+        layui.LoadScript(scriptArr,0, function () {
+            var marker, map, result;
+            map = new BMap.Map("BaiduMap");            // 创建Map实例
+            map.enableScrollWheelZoom(true);
+            map.addControl(new BMap.ScaleControl({anchor: BMAP_ANCHOR_BOTTOM_RIGHT}));    // 右下比例尺
+            map.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT}));  //右上角，仅包含平移和缩放按钮
+            map.centerAndZoom('南京',12);                   // 初始化地图,设置城市和地图级别。
+
+            // layer.msg('Hello, Script Load Succeed<br/> 能显示地图就算加载成功了');
+        });
+    });
+		</script>
+		</body>
+
+</html>

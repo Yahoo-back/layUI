@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+	<!-- <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+	<title>layout 后台大布局 - Layui</title>
+	<!-- <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script> -->
+	<meta http-equiv="content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="./layui/css/layui.css"  media="all">
+	<link rel="stylesheet" href="./css/index.css">
+	
+	<!-- <script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script> -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<!-- <link rel="stylesheet" type="text/css" href="./css/normalize.css" /> -->
+	<!-- <link rel="stylesheet" type="text/css" href="./css/default.css"> -->
+	<!-- <link href="./css/base.css"  rel="stylesheet" type="text/css" /> -->
+	<!-- <link href="./css/project_base.css"  rel="stylesheet" type="text/css" /> -->
+	<!-- <link href="./css/radialindicator.css"  rel="stylesheet" type="text/css" /> -->
+	<!-- <script type="text/javascript" src="./js/base.js"></script> -->
+	<!-- <script type="text/javascript" src="./js/project_base.js"></script>	 -->
+	<!-- <script type="text/javascript" src="./echarts-2.2.7/src/theme/macarons.js"></script> -->
+</head>
+<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+				<!-- <header id="header" class="wjs_topBar hidden-xs hidden-sm">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#" class="wjs_app">
+										<span class="wjs_icon wjs_icon_phone"></span>
+										<span>手机微金所</span>
+										<span class="glyphicon glyphicon-menu-down"></span>
+										<img src="images/code.jpg" alt="微金所App二维码">
+									</a>
+								</div>
+								<div class="col-md-5">
+									<span class="wjs_icon wjs_icon_tel"></span>
+									<span>4006-89-4006（服务时间: 9:00~21:00）</span>
+								</div>
+								<div class="col-md-2">
+									<a href="#">常见问题</a>
+									<a href="#">财富登陆</a>
+								</div>
+								<div class="col-md-3">
+									<a href="#" class="btn btn-defult btn-register">免费注册</a>
+									<a href="#" class="btn btn-link btn-login">登录</a>
+								</div>
+							</div>
+						</div>
+					</header> -->
+					<!-- 导航栏 -->
+					<nav id="mobile" class="navbar wjs_nav "  data-spy="affix" data-offset-top="200" >
+						<div class="container">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a class="navbar-brand" href="#">
+									<span class="wjs_icon wjs_icon_logo"></span>
+									<span class="wjs_icon wjs_icon_name">111</span>
+								</a>
+							</div>
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<!-- 默认导航 -->
+								<ul class="nav navbar-nav">
+									<li class="active"><a href="#">我要投资</a></li>
+									<li><a href="#">我要借贷</a></li>
+									<li><a href="#">平台介绍</a></li>
+									<li><a href="#">新手专区</a></li>
+									<li><a href="#">最新动态</a></li>
+									<li><a href="#">微平台</a></li>
+								</ul>
+								<!-- 右对齐导航 -->
+								<!-- <ul class="nav navbar-nav navbar-right hidden-sm">
+									<li><a href="#">个人中心</a></li>
+								</ul> -->
+							</div>
+						</div>	
+					</nav>
+			<div id="pc" class="layui-header">
+				<div class="layui-logo">layui 后台布局</div>
+				<ul class="layui-nav layui-layout-left">
+					<li class="layui-nav-item"><a href="index.html">首页</a></li>
+					<li class="layui-nav-item"><a href="">商品管理</a></li>
+					<li class="layui-nav-item"><a href="aboutUs.html">用户</a></li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">其它系统</a>
+						<dl class="layui-nav-child">
+							<dd><a href="">邮件管理</a></dd>
+							<dd><a href="">消息管理</a></dd>
+							<dd><a href="">授权管理</a></dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="layui-body">
+				<!-- 内容主体区域 -->
+				<div style="padding: 15px;">
+					<div class="layui-carousel" id="test1">
+						<div carousel-item>
+							<div>条目1</div>
+							<div>条目2</div>
+							<div>条目3</div>
+							<div>条目4</div>
+							<div>条目5</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+				© layui.com - 底部固定区域
+			</div>
+		</div>
+		<script src="./layui/layui.js"></script>
+		<script src="js/map.js"></script>
+		<script>
+		//JavaScript代码区域
+		layui.use('element', function(){
+			var element = layui.element;
+		});
+		layui.use('carousel', function(){
+  var carousel = layui.carousel;
+  //建造实例
+  carousel.render({
+    elem: '#test1'
+    ,width: '100%' //设置容器宽度
+    ,arrow: 'always' //始终显示箭头
+    //,anim: 'updown' //切换动画方式
+  });
+});
+		</script>
+		</body>
+
+</html>
